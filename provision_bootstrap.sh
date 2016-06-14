@@ -2,16 +2,11 @@
 # Root level script to set up environment for Django development on Vagrant.
 # Target box: ubuntu/trusty64
 
-DB_NAME='mydjango'
-DB_USERNAME='mydjango'
-DB_PASSWORD='password'
-POSTGRES_PASSWORD='postgres'
-
 echo "---------------------------------------------"
 echo "Installing package dependencies"
 echo "---------------------------------------------"
 apt-get update
-apt-get install -y git build-essential python python-dev python-virtualenv libjpeg8-dev
+apt-get install -y git build-essential python python-dev python-pip python-virtualenv libjpeg8-dev gettext
 apt-get install -y postgresql postgresql-server-dev-all postgis postgresql-9.3-postgis-2.1
 apt-get install -y binutils libgeoip1 libproj-dev gdal-bin python-gdal
 
@@ -28,15 +23,6 @@ if [ -f /etc/postgresql/9.3/main/postgresql.conf ]; then
     cp /etc/postgresql/9.3/main/postgresql.conf /etc/postgresql/9.3/main/postgresql.conf.orig
     echo "listen_addresses = '*'" >> /etc/postgresql/9.3/main/postgresql.conf
 fi
-
-echo "---------------------------------------------"
-echo "Creating PostGIS database"
-echo "---------------------------------------------"
-sudo -u postgres psql --command="ALTER USER postgres WITH PASSWORD '$POSTGRES_PASSWORD';"
-sudo -u postgres psql --command="CREATE USER $DB_USERNAME WITH PASSWORD '$DB_PASSWORD';"
-sudo -u postgres psql --command="CREATE DATABASE $DB_NAME WITH OWNER $DB_USERNAME;"
-sudo -u postgres psql --command="GRANT ALL PRIVILEGES ON DATABASE $DB_NAME TO $DB_USERNAME;"
-sudo -u postgres psql --command="CREATE EXTENSION postgis; CREATE EXTENSION postgis_topology;" $DB_NAME
 
 service postgresql restart
 
