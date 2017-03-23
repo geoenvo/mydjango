@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # User level script to set up environment for Django development on Vagrant.
-# Target box: ubuntu/trusty64
+# Target box: ubuntu/xenial64
 
 DB_NAME='mydjango'
 DB_USERNAME='mydjango'
@@ -29,7 +29,7 @@ else
     source /usr/bin/virtualenvwrapper.sh
 fi
 
-if [ ! -d /home/vagrant/.virtualenvs/mydjango ]; then
+if [ ! -d /home/ubuntu/.virtualenvs/mydjango ]; then
     mkvirtualenv --no-site-packages mydjango
 fi
 
