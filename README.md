@@ -1,22 +1,23 @@
-`v0.1 last update 19 Mar 2016`
+`v0.3 last update 23 Mar 2017`
 
-\# Install VirtualBox 4.3.36-105129
+\# Install VirtualBox 5.x
 
-    https://www.virtualbox.org/wiki/Download_Old_Builds_4_3
+    https://www.virtualbox.org/wiki/Downloads
 
-\# Install Vagrant 1.8.1
+\# Install Vagrant 32 bit
 
     https://www.vagrantup.com/downloads.html
 
-\# Open command prompt
+\# Open command prompt or git bash
 
-\# cd to source code dir and clone repo
+\# cd to source code dir and clone repo, use xenial branch for Ubuntu 16.04
 
-    git clone https://github.com/senoadiw/mydjango.git
+    git clone https://github.com/geoenvo/mydjango.git
+    cd mydjango
+    git checkout xenial
 
 \# Rename Vagrantfile.example to Vagrantfile
 
-    cd mydjango
     cp Vagrantfile.example Vagrantfile
 
 \# Start the Vagrant VM
