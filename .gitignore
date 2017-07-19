@@ -5,6 +5,7 @@ Vagrantfile
 *.DS_Store
 .idea
 .vagrant
+mydjango/*
 mydjango/static/*
 mydjango/components/*
 mydjango/uploaded/*
