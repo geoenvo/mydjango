@@ -1,10 +1,10 @@
-`v0.3 last update 23 Mar 2017`
+`v0.3 last update 22 Feb 2018`
 
 \# Install VirtualBox 5.x
 
     https://www.virtualbox.org/wiki/Downloads
 
-\# Install Vagrant 32 bit
+\# Install Vagrant
 
     https://www.vagrantup.com/downloads.html
 
@@ -35,12 +35,12 @@
 
 \# Create a new Django project
 
-    django-admin startproject mydjango
+    django-admin startproject myproject
 
 \# Configure Django settings file to use mydjango database
 
-    cd mydjango
-    vi mydjango/settings.py
+    cd myproject
+    vi myproject/settings.py
 
 \# Run the first database migration to create Django tables
 

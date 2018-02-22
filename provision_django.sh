@@ -29,7 +29,7 @@ else
     source /usr/bin/virtualenvwrapper.sh
 fi
 
-if [ ! -d /home/ubuntu/.virtualenvs/mydjango ]; then
+if [ ! -d /home/vagrant/.virtualenvs/mydjango ]; then
     mkvirtualenv --no-site-packages mydjango
 fi
 

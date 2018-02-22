@@ -2,6 +2,7 @@
 # Root level script to set up environment for Django development on Vagrant.
 # Target box: ubuntu/xenial64
 
+# OBSOLETE
 #echo "---------------------------------------------"
 #echo "select fastest repo mirror with apt-select"
 #echo "---------------------------------------------"
@@ -11,6 +12,17 @@
 #apt-get install -y python-bs4
 #./apt-select.py -t 3 -m up-to-date -l
 #./update.sh
+# OBSOLETE
+
+echo "---------------------------------------------"
+echo "select fastest repo mirror with apt-select"
+echo "---------------------------------------------"
+apt-get update
+apt-get install -y python-pip
+pip install https://github.com/jblakeman/apt-select/archive/v2.1.0.zip
+apt-select -C ID -t 10 -p
+cp /etc/apt/sources.list /etc/apt/sources.list.bak
+mv sources.list /etc/apt/
 
 echo "---------------------------------------------"
 echo "Installing package dependencies"
@@ -41,7 +53,7 @@ echo "Installing virtualenv"
 echo "---------------------------------------------"
 pip install virtualenv virtualenvwrapper
 
-if ! grep -Fq "WORKON_HOME" /home/ubuntu/.bashrc; then
-    echo 'export WORKON_HOME=$HOME/.virtualenvs' >> /home/ubuntu/.bashrc
-    echo 'source /usr/local/bin/virtualenvwrapper.sh' >> /home/ubuntu/.bashrc
+if ! grep -Fq "WORKON_HOME" /home/vagrant/.bashrc; then
+    echo 'export WORKON_HOME=$HOME/.virtualenvs' >> /home/vagrant/.bashrc
+    echo 'source /usr/local/bin/virtualenvwrapper.sh' >> /home/vagrant/.bashrc
 fi
