@@ -35,12 +35,12 @@
 
 \# Create a new Django project
 
-    django-admin startproject myproject
+    django-admin startproject mydjango
 
 \# Configure Django settings file to use mydjango database
 
-    cd myproject
-    vi myproject/settings.py
+    cd mydjango
+    vi mydjango/settings.py
 
 \# Run the first database migration to create Django tables
 
