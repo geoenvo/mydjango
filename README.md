@@ -41,6 +41,17 @@
 
     cd mydjango
     vi mydjango/settings.py
+        
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.contrib.gis.db.backends.postgis',
+                'NAME': 'mydjango',
+                'USER': 'mydjango',
+                'PASSWORD': 'password',
+                'HOST': 'localhost',
+                'PORT': '',
+            }
+        }
 
 \# Run the first database migration to create Django tables
 
